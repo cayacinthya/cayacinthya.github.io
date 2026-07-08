@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mazaya Cinthya Andhini — Sales Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14202B;
+    --navy-soft:#1C2C3A;
+    --cream:#FBF8F2;
+    --teal:#1F9E89;
+    --teal-dim:#17786A;
+    --coral:#FF6F59;
+    --text-dark:#1A2229;
+    --text-muted:#5B6670;
+    --line:#E4DECF;
+    --mono: 'IBM Plex Mono', monospace;
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--body);
+    color: var(--text-dark);
+    background: var(--cream);
+    line-height: 1.55;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position: sticky; top:0; z-index:50;
+    background: rgba(251,248,242,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; height:64px;}
+  .brand{font-family:var(--mono); font-size:13px; letter-spacing:0.06em; font-weight:600;}
+  .navlinks{display:flex; gap:28px; font-size:14px;}
+  .navlinks a{text-decoration:none; color:var(--text-muted); transition:color .15s;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--teal-dim);}
+
+  /* HERO */
+  header.hero{
+    background: var(--navy);
+    color: var(--cream);
+    padding: 96px 0 72px;
+    position: relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+  h1{
+    font-family: var(--display);
+    font-weight:600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    max-width: 680px;
+    color: #fff;
+  }
+  h1 em{font-style: italic; font-weight:300; color: var(--teal);}
+  .hero-sub{
+    margin-top:20px;
+    max-width:520px;
+    font-size:17px;
+    color: rgba(251,248,242,0.72);
+  }
+  .cta-row{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    font-family: var(--body);
+    font-weight:600;
+    font-size:14px;
+    padding:13px 22px;
+    border-radius:3px;
+    text-decoration:none;
+    display:inline-block;
+    transition: transform .15s ease, background .15s ease;
+    border: 1px solid transparent;
+  }
+  .btn:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+  .btn-primary{background:var(--teal); color:#0B1520;}
+  .btn-primary:hover{background:#28b39c; transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(251,248,242,0.35); color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--coral); color:var(--coral); transform:translateY(-1px);}
+
+  /* CONSOLE — signature element */
+  .console{
+    margin-top:56px;
+    background: var(--navy-soft);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:6px;
+    padding: 22px 26px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    max-width:640px;
+  }
+  .console-label{
+    width:100%;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color: rgba(251,248,242,0.4);
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(31,158,137,0.2);}
+  .stat{flex:1; min-width:140px;}
+  .stat .num{
+    font-family: var(--mono);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight:600;
+    color: var(--teal);
+  }
+  .stat .lbl{
+    font-size:12.5px;
+    color: rgba(251,248,242,0.55);
+    margin-top:4px;
+  }
+
+  /* SECTIONS */
+  section{padding: 76px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-tag{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color: var(--teal-dim);
+    margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 28px;
+    max-width:600px;
+  }
+  .about-text{max-width:620px; font-size:16.5px; color:var(--text-muted);}
+
+  /* CASE STUDIES — call-log styled cards */
+  .case{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding: 28px 30px;
+    margin-bottom: 20px;
+    background:#fff;
+  }
+  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:14px;}
+  .case h3{font-family:var(--display); font-weight:600; font-size:1.2rem; max-width:480px;}
+  .stage-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding: 5px 10px;
+    border-radius:3px;
+    background: rgba(31,158,137,0.1);
+    color: var(--teal-dim);
+    white-space:nowrap;
+    height:fit-content;
+  }
+  .case-grid{display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:10px;}
+  .case-grid div p.k{font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px;}
+  .case-grid div p.v{font-size:14.5px; color:var(--text-dark);}
+  .case-result{
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+    font-family:var(--mono);
+    font-size:14px;
+    color: var(--coral);
+    font-weight:600;
+  }
+  @media (max-width:640px){ .case-grid{grid-template-columns:1fr;} }
+
+  /* SKILLS */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px;}
+  .skill-col h4{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--teal-dim); margin-bottom:10px;
+  }
+  .skill-col p{color:var(--text-muted); font-size:14.5px;}
+  @media (max-width:640px){ .skills-grid{grid-template-columns:1fr;} }
+
+  /* SERVICES */
+  .service{
+    display:grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .service:last-child{border-bottom:none;}
+  .service h4{font-family:var(--display); font-weight:600; font-size:1.05rem;}
+  .service p{color:var(--text-muted); font-size:14.5px; margin-top:6px;}
+  @media (max-width:640px){ .service{grid-template-columns:1fr; gap:6px;} }
+
+  /* ACHIEVEMENTS */
+  .ach-list{display:flex; flex-direction:column; gap:10px;}
+  .ach-item{
+    display:flex; gap:14px; align-items:baseline;
+    font-size:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .ach-item:last-child{border-bottom:none;}
+  .ach-item .badge{font-family:var(--mono); color:var(--teal-dim); font-weight:600; min-width:64px;}
+
+  /* CERTS */
+  .certs{list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14.5px; color:var(--text-muted);}
+  .certs li::before{content:"—"; margin-right:10px; color:var(--teal);}
+
+  /* CONTACT */
+  footer{
+    background: var(--navy);
+    color: var(--cream);
+    padding: 72px 0 48px;
+  }
+  footer h2{color:#fff;}
+  .contact-links{display:flex; gap:20px; flex-wrap:wrap; margin-top:24px;}
+  .contact-links a{
+    text-decoration:none;
+    font-size:14.5px;
+    color: rgba(251,248,242,0.8);
+    border:1px solid rgba(251,248,242,0.25);
+    padding:11px 18px;
+    border-radius:3px;
+    transition: border-color .15s, color .15s;
+    font-family:var(--body); font-weight:500;
+  }
+  .contact-links a:hover, .contact-links a:focus-visible{border-color:var(--teal); color:var(--teal);}
+  .foot-note{margin-top:48px; font-size:12.5px; color:rgba(251,248,242,0.35); font-family:var(--mono);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">M. CINTHYA — SALES GROWTH</div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Sales Growth · Partner & Customer Success · B2B SaaS</div>
+    <h1>I turn cold pipeline into <em>closed revenue</em> — and closed revenue into repeatable process.</h1>
+    <p class="hero-sub">Three years across SDR, customer success, and partner sales inside an AI-powered VoIP company. I build the systems that make outbound, onboarding, and channel sales actually convert.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#contact">Hire me</a>
+      <a class="btn btn-ghost" href="#services">Work with me</a>
+    </div>
+
+    <div class="console">
+      <div class="console-label"><span class="dot"></span> Live performance readout</div>
+      <div class="stat"><div class="num">83.8%</div><div class="lbl">SQL → meeting conversion</div></div>
+      <div class="stat"><div class="num">93.2%</div><div class="lbl">Meeting → closed-won</div></div>
+      <div class="stat"><div class="num">278%</div><div class="lbl">of 6-month MRR target</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-tag">About</div>
+    <h2>From first cold call to renewal — I've worked every stage of the B2B SaaS revenue cycle.</h2>
+    <p class="about-text">I've qualified outbound leads as an SDR, kept customers onboarded and growing as a CS rep, and now run partner-channel sales for MiiTel, an AI-powered smart telephone system by RevComm. That full-cycle view is what I bring to teams building — or fixing — their own sales motion.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-tag">Case Studies</div>
+    <h2>Selected work</h2>
+
+    <div class="case">
+      <div class="case-top">
+        <h3>Building a lead engine that doesn't just fill pipeline — it converts</h3>
+        <span class="stage-tag">STAGE: CLOSED WON</span>
+      </div>
+      <div class="case-grid">
+        <div><p class="k">Problem</p><p class="v">Outbound across Instagram Ads, Google Ads, WABA API, LinkedIn, and webinars generated volume — not every lead was sales-ready.</p></div>
+        <div><p class="k">Action</p><p class="v">Built a BANT-based qualification process to filter for real budget, authority, and need before handoff to Sales Reps.</p></div>
+        <div><p class="k">Tools</p><p class="v">Salesforce, LinkedIn Sales Navigator, Apollo, Lusha.</p></div>
+      </div>
+      <div class="case-result">→ 83.8% SQL-to-meeting, 93.2% meeting-to-close, 278% of MRR target</div>
+    </div>
+
+    <div class="case">
+      <div class="case-top">
+        <h3>Turning a partner channel from a bottleneck into a growth lever</h3>
+        <span class="stage-tag">STAGE: TARGET ACHIEVED</span>
+      </div>
+      <div class="case-grid">
+        <div><p class="k">Problem</p><p class="v">Partner-generated deals move on a different track than direct sales — mismatched pricing or slow handoff can quietly kill deals.</p></div>
+        <div><p class="k">Action</p><p class="v">Owned the full partner sales cycle — qualification, proposals, quotations — while keeping every deal compliant and smoothing handover into implementation.</p></div>
+        <div><p class="k">Tools</p><p class="v">Salesforce, partner-facing sales decks, pricing governance.</p></div>
+      </div>
+      <div class="case-result">→ 88.9% paid achievement rate, 105% CVR against quarterly target</div>
+    </div>
+
+    <div class="case">
+      <div class="case-top">
+        <h3>Making customer success a revenue function, not just a support one</h3>
+        <span class="stage-tag">STAGE: RENEWED &amp; EXPANDED</span>
+      </div>
+      <div class="case-grid">
+        <div><p class="k">Problem</p><p class="v">Post-sale accounts often get "maintained" instead of grown — churn risk and upsell signals go unnoticed.</p></div>
+        <div><p class="k">Action</p><p class="v">Owned onboarding through renewal as single point of contact, tracking account health and surfacing upsell opportunities proactively.</p></div>
+        <div><p class="k">Tools</p><p class="v">Salesforce, account health tracking, client feedback loops.</p></div>
+      </div>
+      <div class="case-result">→ [add: renewal %, accounts managed, or upsell revenue once confirmed]</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-tag">Skills</div>
+    <h2>What I bring</h2>
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h4>Sales &amp; Business Development</h4>
+        <p>B2B SaaS Sales, Prospecting, BANT Qualification, Cold Calling, Product Demos, Pipeline Management, Partner Collaboration, Upselling &amp; Cross-selling.</p>
+      </div>
+      <div class="skill-col">
+        <h4>Customer Success</h4>
+        <p>Customer Onboarding, Account Management, Client Retention, Renewal Support, Relationship Building.</p>
+      </div>
+      <div class="skill-col">
+        <h4>CRM &amp; Tools</h4>
+        <p>Salesforce, HubSpot, Omnichannel, WABA API, LinkedIn Sales Navigator, Zoom, Calendly, Lusha, Apollo, Braze.</p>
+      </div>
+      <div class="skill-col">
+        <h4>Technical Knowledge</h4>
+        <p>VoIP Systems, Cloud-based SaaS, Contact Center Solutions, API-based Tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-tag">Services</div>
+    <h2>Ways to work with me</h2>
+
+    <div class="service">
+      <h4>Sales SOP &amp; Playbook Design</h4>
+      <p>You've got reps or partners selling, but no consistent process — every deal looks different. I build discovery frameworks, pitch scripts, and handoff checklists that make your sales motion repeatable.</p>
+    </div>
+    <div class="service">
+      <h4>SDR Coaching &amp; Outbound Audits</h4>
+      <p>Outbound is generating activity but not enough qualified meetings. I review your current cold calling, email, and LinkedIn outreach, then rebuild qualification criteria so SDRs spend time on leads that close.</p>
+    </div>
+    <div class="service">
+      <h4>LinkedIn Content Strategy</h4>
+      <p>For SaaS and sales leaders who know their product but not how to turn it into content. I help turn real deals, lessons, and frameworks into a posting strategy that builds a personal brand.</p>
+    </div>
+    <div class="service">
+      <h4>Partner &amp; Channel Conflict Resolution</h4>
+      <p>Partner-generated and direct-sales deals are stepping on each other. I've managed this exact tension inside a partner/reseller model and can help set clear rules of engagement.</p>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="section-tag">Achievements</div>
+    <h2>Track record</h2>
+    <div class="ach-list">
+      <div class="ach-item"><span class="badge">SDR</span> 83.8% SQL-to-meeting conversion · 93.2% meeting-to-closing conversion</div>
+      <div class="ach-item"><span class="badge">SDR</span> 278.3% of 6-month MRR target achieved</div>
+      <div class="ach-item"><span class="badge">Partner</span> 88.9% paid achievement rate against quarterly target</div>
+      <div class="ach-item"><span class="badge">Partner</span> 105% CVR achievement rate</div>
+      <div class="ach-item"><span class="badge">Ivosights</span> Ranked #3 for Highest Sales Performance — Feb 2022</div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-tag">Certifications</div>
+    <h2>Continued learning</h2>
+    <ul class="certs">
+      <li>Simplilearn — Advanced Email Marketing</li>
+      <li>Udemy — Account Based Marketing (ABM): B2B Marketing Strategy</li>
+      <li>KT&amp;G Sangsang University — Digital Marketing &amp; Copywriting</li>
+      <li>ABNR Counsellors at Law — Company Organization, Merger, and Acquisition Training</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-tag" style="color:var(--teal)">Contact</div>
+    <h2>Let's talk about your sales motion.</h2>
+    <p style="color:rgba(251,248,242,0.65); max-width:480px; font-size:15.5px;">Open to full-time roles and freelance/consulting engagements — whichever fits what you're building.</p>
+    <div class="contact-links">
+      <a href="mailto:caya.career@proton.me">caya.career@proton.me</a>
+      <a href="https://bit.ly/cinthya-profile" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+    <div class="foot-note">Mazaya Cinthya Andhini · Jakarta, Indonesia</div>
+  </div>
+</footer>
+
+</body>
+</html>
